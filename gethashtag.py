@@ -4,6 +4,7 @@ import urllib
 import urllib2
 import json
 import re
+import sys
 
 TWITTER_API  = "http://search.twitter.com/search.json?q="
 TWITTER_ID   = "https://twitter.com/{user}/status/{id}"
@@ -30,14 +31,16 @@ def getJSON(hashtag, tweets, url=False):
     if hashtag.startswith("#"):
         hashtag = hashtag[1:]
     hashtag = urllib.quote(hashtag)
-    print hashtag
+    print "Hashtag: #" + hashtag
     f = None
     try:
         api_url = TWITTER_API + '%23' + hashtag + '&rpp=' + str(tweets)
         #print api_url
         f = urllib2.urlopen(api_url)
-    except:
-        raise
+    except Exception:
+        print "Unable to retrieve any contents at this time. Please change hashtag and try again."
+        sys.exit(1)
+        
     return f
 
 def parseJSON(f):
@@ -67,12 +70,15 @@ def main():
     json = getJSON(h, t, u)
     urls = parseJSON(json)
     d = dict(urls).items()
-    if u:
-        for url in d:
-            print url[0] + " @ " + url[1]     
+    if d:
+        if u:
+            for url in d:
+                print url[0] + " @ " + url[1]     
+        else:
+            for url in d:
+                print url[0]
     else:
-        for url in d:
-            print url[0]    
+        print "No contents are returned using hashtag: " + h + ". Please change hashtag and try again."
     
 if __name__ == '__main__':
     main()
