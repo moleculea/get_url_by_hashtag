@@ -1,14 +1,13 @@
-get_url_by_hashtag
-
-Retrieve unique URLs found in the most recent tweets on Twitter
 usage: gethashtag.py [-h] [-t number_of_tweets] [-u] hashtag
 
+Retrieve unique URLs found in the most recent tweets on Twitter
+
 positional arguments:
-  hashtag
+  hashtag               use form hashtag_name or \#hashtag_name
 
 optional arguments:
   -h, --help            show this help message and exit
   -t number_of_tweets, --tweets number_of_tweets
-                        Number of tweets to retrieve (defaults to 100)
-  -u, --url             Print the URL of the tweet page which includes inner
+                        number of tweets to retrieve (defaults to 100)
+  -u, --url             nrint the URL of the tweet page which includes inner
                         URL
