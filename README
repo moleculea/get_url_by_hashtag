@@ -1,3 +1,4 @@
+requirement: Python 2.7
 usage: gethashtag.py [-h] [-t number_of_tweets] [-u] hashtag
 
 Retrieve unique URLs found in the most recent tweets on Twitter
