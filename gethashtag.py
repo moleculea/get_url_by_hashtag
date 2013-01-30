@@ -1,5 +1,6 @@
-#!/usr/bin/python
+#! /usr/bin/env python
 # -*- coding: utf-8  -*-
+
 import argparse
 import urllib
 import urllib2
@@ -10,6 +11,16 @@ import sys
 TWITTER_API  = "http://search.twitter.com/search.json?q="
 TWITTER_ID   = "https://twitter.com/{user}/status/{id}"
 
+def checkVersion():
+    version = sys.version_info
+    if version[0] == 2:
+        if version[1] < 7:
+            print "Python 2.%d installed. This app requires Python 2.7."%(version[1])
+            sys.exit(1)
+    if version[0] == 3:
+            print "Python 3.%d installed. This app requires Python 2.7."%(version[1])
+            sys.exit(1)
+            
 def getArgs():
     """Parse command-line arguments with optional functionalities"""
     
@@ -67,6 +78,7 @@ def matchShortURL(text):
         return None
 
 def main():
+    checkVersion()
     h, t, u = getArgs()
     json = getJSON(h, t, u)
     urls = parseJSON(json)
