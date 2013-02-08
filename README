@@ -10,5 +10,5 @@ optional arguments:
   -h, --help            show this help message and exit
   -t number_of_tweets, --tweets number_of_tweets
                         number of tweets to retrieve (defaults to 100)
-  -u, --url             nrint the URL of the tweet page which includes inner
+  -u, --url             print the URL of the tweet page which includes inner
                         URL

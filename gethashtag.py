@@ -27,7 +27,7 @@ def getArgs():
     parser = argparse.ArgumentParser(description='Retrieve unique URLs found in the most recent tweets on Twitter')
     parser.add_argument('hashtag', help="use form hashtag_name or \#hashtag_name")
     parser.add_argument('-t','--tweets', dest="tweets", type=int, default=100, metavar="number_of_tweets", help="number of tweets to retrieve (defaults to 100)")
-    parser.add_argument('-u','--url', action="store_true", dest="url", help="nrint the URL of the tweet page which includes inner URL")
+    parser.add_argument('-u','--url', action="store_true", dest="url", help="print the URL of the tweet page which includes inner URL")
     
     result = parser.parse_args()
     if result.tweets <= 0:
