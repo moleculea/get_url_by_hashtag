@@ -80,7 +80,7 @@ def matchShortURL(text):
         return None
 
 def main():
-    checkVersion()
+
     h, t, u = getArgs()
     json = getJSON(h, t, u)
     urls = parseJSON(json)
