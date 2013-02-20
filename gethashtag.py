@@ -1,17 +1,15 @@
 #! /usr/bin/env python
 # -*- coding: utf-8  -*-
 
-import argparse
 import urllib
 import urllib2
 import json
 import re
 import sys
 
-TWITTER_API  = "http://search.twitter.com/search.json?q="
-TWITTER_ID   = "https://twitter.com/{user}/status/{id}"
-
-def checkVersion():
+try:
+    import argparse
+except:
     version = sys.version_info
     if version[0] == 2:
         if version[1] < 7:
@@ -21,6 +19,10 @@ def checkVersion():
             print "Python 3.%d installed. This app requires Python 2.7."%(version[1])
             sys.exit(1)
             
+TWITTER_API  = "http://search.twitter.com/search.json?q="
+TWITTER_ID   = "https://twitter.com/{user}/status/{id}"
+
+
 def getArgs():
     """Parse command-line arguments with optional functionalities"""
     
